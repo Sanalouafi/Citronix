@@ -39,6 +39,12 @@ public class HarvestController {
         return ResponseEntity.ok(harvests);
     }
 
+    @GetMapping("/season/{season}")
+    public ResponseEntity<List<HarvestDto>> getHarvestsBySeason(@PathVariable String season) {
+        List<HarvestDto> harvests = harvestService.getHarvestsBySeason(season);
+        return ResponseEntity.ok(harvests);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteHarvest(@PathVariable Long id) {
         harvestService.deleteHarvest(id);
