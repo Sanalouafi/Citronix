@@ -1,10 +1,6 @@
 package com.example.citronix.exception.handler;
 
-import com.example.citronix.exception.customException.FarmNotFoundException;
-import com.example.citronix.exception.customException.FieldNotFoundException;
-import com.example.citronix.exception.customException.InvalidFieldAreaException;
-import com.example.citronix.exception.customException.HarvestLimitExceededException;
-import com.example.citronix.exception.customException.TreeNotInSeasonException;
+import com.example.citronix.exception.customException.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -37,4 +33,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleHarvestLimitExceededException(HarvestLimitExceededException e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(SaleNotFoundException.class)
+    public ResponseEntity<String> handleSaleNotFoundException(SaleNotFoundException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
+    
 }
