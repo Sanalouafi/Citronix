@@ -4,7 +4,7 @@ import com.example.citronix.dto.TreeDto;
 import com.example.citronix.request.TreeRequest;
 import com.example.citronix.service.TreeService;
 import com.example.citronix.mapper.TreeMapper;
-import com.example.citronix.vm.TreeVM;
+import com.example.citronix.dto.TreeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,14 +29,14 @@ public class TreeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TreeVM> getTreeById(@PathVariable Long id) {
-        TreeVM treeVM = treeService.getTreeById(id);
-        return ResponseEntity.ok(treeVM);
+    public ResponseEntity<TreeDto> getTreeById(@PathVariable Long id) {
+        TreeDto TreeDto = treeService.getTreeById(id);
+        return ResponseEntity.ok(TreeDto);
     }
 
     @GetMapping("/field/{fieldId}")
-    public ResponseEntity<List<TreeVM>> getAllTreesByField(@PathVariable Long fieldId) {
-        List<TreeVM> trees = treeService.getAllTreesByField(fieldId);
+    public ResponseEntity<List<TreeDto>> getAllTreesByField(@PathVariable Long fieldId) {
+        List<TreeDto> trees = treeService.getAllTreesByField(fieldId);
         return ResponseEntity.ok(trees);
     }
 

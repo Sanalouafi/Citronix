@@ -9,6 +9,6 @@ public interface TreeService {
 
     TreeDto createTree(TreeDto treeDto);
     void deleteTree(Long id);
-    TreeVM getTreeById(Long id);
-    List<TreeVM> getAllTreesByField(Long fieldId);
+    TreeDto getTreeById(Long id);
+    List<TreeDto> getAllTreesByField(Long fieldId);
 }

@@ -8,7 +8,6 @@ import com.example.citronix.mapper.TreeMapper;
 import com.example.citronix.repository.TreeRepository;
 import com.example.citronix.repository.FieldRepository;
 import com.example.citronix.service.TreeService;
-import com.example.citronix.vm.TreeVM;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -40,17 +39,17 @@ public class TreeServiceImpl implements TreeService {
     }
 
     @Override
-    public TreeVM getTreeById(Long id) {
+    public TreeDto getTreeById(Long id) {
         Tree tree = treeRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tree not found."));
-        return treeMapper.toVM(tree);
+        return treeMapper.toDto(tree);
     }
 
     @Override
-    public List<TreeVM> getAllTreesByField(Long fieldId) {
+    public List<TreeDto> getAllTreesByField(Long fieldId) {
         Field field = fieldRepository.findById(fieldId)
                 .orElseThrow(() -> new FieldNotFoundException(fieldId));
         List<Tree> trees = treeRepository.findByField(field);
-        return trees.stream().map(treeMapper::toVM).collect(Collectors.toList());
+        return trees.stream().map(treeMapper::toDto).collect(Collectors.toList());
     }
 }
