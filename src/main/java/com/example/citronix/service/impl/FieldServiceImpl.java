@@ -1,4 +1,4 @@
 package com.example.citronix.service.impl;
 
-public class FieldServiceImpl {
+public class FieldServiceImpl{
 }

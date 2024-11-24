@@ -1,4 +1,4 @@
 package com.example.citronix.controller;
 
-public class FieldCOntroller {
+public class FieldController {
 }
