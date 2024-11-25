@@ -26,5 +26,5 @@ public class HarvestDetail {
     private Tree tree;
 
     @Column(nullable = false)
-    private double quantity; // Quantity harvested from the specific tree in kilograms
+    private double quantity; 
 }
