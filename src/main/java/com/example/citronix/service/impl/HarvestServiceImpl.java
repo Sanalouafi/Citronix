@@ -29,7 +29,7 @@ public class HarvestServiceImpl implements HarvestService {
 
     @Override
     public HarvestDto createHarvest(HarvestDto harvestDto) {
-        // Ensure only one harvest per season
+        //One harvest per season
         boolean exists = harvestRepository.existsBySeasonAndDate(harvestDto.getSeason(), harvestDto.getDate());
         if (exists) {
             throw new HarvestLimitExceededException("A harvest for this season already exists.");
@@ -93,5 +93,4 @@ public class HarvestServiceImpl implements HarvestService {
             return Season.WINTER;
         }
     }
-    
 }

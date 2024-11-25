@@ -1,6 +1,5 @@
 package com.example.citronix.entity;
 
-import com.example.citronix.entity.enums.HarvestStatus;
 import com.example.citronix.entity.enums.Season;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "harvest")
-
 public class Harvest {
 
     @Id
@@ -27,14 +25,10 @@ public class Harvest {
     private Season season;
 
     @Column(nullable = false)
-    private LocalDate date; // Date of the harvest
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private HarvestStatus status;
+    private LocalDate date;
 
     @Column(nullable = false)
-    private double totalQuantity; // Total quantity harvested in kilograms
+    private double totalQuantity; // Total quantity harvested
 
     @OneToMany(mappedBy = "harvest", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HarvestDetail> harvestDetails;

@@ -29,6 +29,9 @@ public class TreeServiceImpl implements TreeService {
 
         Tree tree = treeMapper.toEntity(treeDto);
         tree.setField(field);
+
+        tree.updateCalculatedFields();
+
         Tree savedTree = treeRepository.save(tree);
         return treeMapper.toDto(savedTree);
     }
@@ -51,5 +54,18 @@ public class TreeServiceImpl implements TreeService {
                 .orElseThrow(() -> new FieldNotFoundException(fieldId));
         List<Tree> trees = treeRepository.findByField(field);
         return trees.stream().map(treeMapper::toDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public TreeDto updateTree(Long id, TreeDto treeDto) {
+        Tree existingTree = treeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tree not found."));
+
+        existingTree.setPlantingDate(treeDto.getPlantingDate());
+
+        existingTree.updateCalculatedFields();
+
+        Tree updatedTree = treeRepository.save(existingTree);
+        return treeMapper.toDto(updatedTree);
     }
 }

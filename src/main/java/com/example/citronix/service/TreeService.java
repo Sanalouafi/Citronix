@@ -1,6 +1,5 @@
 package com.example.citronix.service;
 
-import com.example.citronix.vm.TreeVM;
 import com.example.citronix.dto.TreeDto;
 
 import java.util.List;
@@ -11,4 +10,5 @@ public interface TreeService {
     void deleteTree(Long id);
     TreeDto getTreeById(Long id);
     List<TreeDto> getAllTreesByField(Long fieldId);
+    TreeDto updateTree(Long id, TreeDto treeDto);
 }

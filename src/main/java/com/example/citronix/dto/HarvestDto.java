@@ -1,6 +1,5 @@
 package com.example.citronix.dto;
 
-import com.example.citronix.entity.enums.HarvestStatus;
 import com.example.citronix.entity.enums.Season;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +16,6 @@ public class HarvestDto {
     private Long id;
     private Season season;
     private LocalDate date;
-    private HarvestStatus status;
-    private double totalQuantity;
-    private List<HarvestDetailDto> harvestDetails; // List of HarvestDetailDto
+    private double totalQuantity; // Total quantity harvested
+    private List<HarvestDetailDto> harvestDetails;
 }
