@@ -15,8 +15,8 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(FarmNotFoundException.class)
-    public ResponseEntity<String> handleFarmNotFoundException(FarmNotFoundException e) {
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    public ResponseEntity<Object> handleFarmNotFoundException(FarmNotFoundException e, WebRequest request) {
+        return buildErrorResponse(e, HttpStatus.NOT_FOUND, request);
     }
 
     @ExceptionHandler(InvalidFieldAreaException.class)

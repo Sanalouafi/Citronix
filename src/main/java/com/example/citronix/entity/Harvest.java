@@ -14,6 +14,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "harvest")
+
 public class Harvest {
 
     @Id

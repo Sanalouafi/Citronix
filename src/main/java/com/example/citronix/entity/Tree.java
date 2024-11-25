@@ -11,6 +11,8 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "tree")
+
 public class Tree {
 
     @Id

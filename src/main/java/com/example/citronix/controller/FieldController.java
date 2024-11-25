@@ -5,6 +5,7 @@ import com.example.citronix.request.FieldRequest;
 import com.example.citronix.service.FieldService;
 import com.example.citronix.mapper.FieldMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +17,13 @@ import java.util.List;
 @RequestMapping("/api/fields")
 @RequiredArgsConstructor
 public class FieldController {
-
     private final FieldService fieldService;
     private final FieldMapper fieldMapper;
 
     @PostMapping
     public ResponseEntity<FieldDto> createField(@Valid @RequestBody FieldRequest fieldRequest) {
         FieldDto fieldDto = fieldMapper.toDto(fieldMapper.toEntity(fieldRequest));
-        FieldDto createdField = fieldService.createField(fieldDto);
+        FieldDto createdField = fieldService.createField(fieldRequest);
         return new ResponseEntity<>(createdField, HttpStatus.CREATED);
     }
 

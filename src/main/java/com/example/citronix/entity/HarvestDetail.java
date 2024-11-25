@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "harvestDetail")
+
 public class HarvestDetail {
 
     @Id

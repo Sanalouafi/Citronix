@@ -15,8 +15,8 @@ public class Field {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "farm_id",nullable = false)
+    @JoinColumn(name = "farm_id", nullable = false)
     private Farm farm;
     @Column(nullable = false)
-    private String name;
+    private double area;
 }

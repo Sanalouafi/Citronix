@@ -5,6 +5,7 @@ import com.example.citronix.request.SaleRequest;
 import com.example.citronix.service.SaleService;
 import com.example.citronix.mapper.SaleMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,6 @@ import java.util.List;
 @RequestMapping("/api/sales")
 @RequiredArgsConstructor
 public class SaleController {
-
     private final SaleService saleService;
     private final SaleMapper saleMapper;
 
